@@ -15,7 +15,7 @@ import { DELAY } from './../utils/constants'
 const SingleNewPage = () => {
   const dateToday = new Date();
   const history = useHistory();
-  const { posts, addPost } = usePost();
+  const {posts, addPost} = usePost();
   const [confirm, setConfirm] = useState(false);
   const [message, setMessage] = useState('');
   const [image, setImage] = useState('');

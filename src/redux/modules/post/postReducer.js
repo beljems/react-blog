@@ -35,13 +35,15 @@ const postReducer = (state = INITIAL_STATE, action = {}) => {
         ...state,
         posts: postsData,
         postData: action.payload,
-        updating: false,
+        updating: true,
         error: null
       }
     case `${GET_POSTS}_SUCCESS` :
-      let itemPost = {}
-      state.posts.map((item, key) => itemPost = item[key].id)
-      const postsArr = action.payload.map(obj => obj.id === itemPost ? { ...obj, ...state.posts } : obj)
+      let itemPost = {}, postsArr = []
+      if(action.payload) {
+        state.posts.map((item, key) => itemPost = item[key].id)
+        postsArr = action.payload.map(obj => obj.id === itemPost ? { ...obj, ...state.posts } : obj)
+      }
 
       return {
         ...state,
@@ -56,18 +58,21 @@ const postReducer = (state = INITIAL_STATE, action = {}) => {
         error: null
       }
     case `${ADD_POST}_SUCCESS` :
-      let postKey = Object.keys(action.payload)[0];
-      const filteredPosts = [action.payload, ...state.posts.filter(item => Object.keys(item) !== postKey)]
+      let filteredPosts = []
+      if(action.payload) {
+        let postKey = Object.keys(action.payload)[0];
+        filteredPosts = [action.payload, ...state.posts.filter(item => Object.keys(item) !== postKey)]
+      }
       return {
         ...state,
         post: action.payload,
         posts: filteredPosts,
+        updating: true,
         error: null
       }
     case `${UPDATE_POST}_SUCCESS` :
       return {
         ...state,
-        updating: false,
         error: null
       }
     case `${ADD_COMMENT}_SUCCESS` :

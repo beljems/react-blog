@@ -122,7 +122,7 @@ const SingleEditPage = () => {
      </div>
      {postItem.comments &&
        <Comment
-         postId={id}
+         postId={postItem.id}
          comments={postItem.comments}
        />}
     </>

@@ -16,12 +16,14 @@ export default (id) => {
   const [postItem, setPostItem] = useState({});
 
   useEffect(() => {
+    dispatch(getPosts())
+  }, [dispatch])
+
+  useEffect(() => {
     if(id) {
       dispatch(getPost({ id: parseInt(id) }))
-    } else {
-      dispatch(getPosts())
     }
-  }, [id, posts, dispatch])
+  }, [id, dispatch])
 
   useEffect(() => {
     if(updating) {

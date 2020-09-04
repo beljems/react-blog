@@ -11,8 +11,8 @@ const Footer = () => {
   const [rightValue, setRightValue] = useState('')
 
   useEffect(() => {
+    const container = document.querySelector('.footer-container').getBoundingClientRect()
     window.addEventListener('scroll', () => {
-      const container = document.querySelector('.footer-container').getBoundingClientRect()
       setRightValue(`${(window.screen.width - (container.width - 60)) / 2}px`)
 
       let position = window.pageYOffset

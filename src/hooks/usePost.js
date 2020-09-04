@@ -26,11 +26,11 @@ export default (id) => {
   }, [id, dispatch])
 
   useEffect(() => {
-    if(updating) {
+    if(id) {
       const article = posts.filter(obj => obj.id === parseInt(id))
       setPostItem(article[0])
     }
-  }, [id, posts, updating])
+  }, [id, posts])
 
   return {
     posts,

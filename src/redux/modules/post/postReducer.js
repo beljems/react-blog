@@ -67,7 +67,6 @@ const postReducer = (state = INITIAL_STATE, action = {}) => {
         ...state,
         post: action.payload,
         posts: filteredPosts,
-        updating: true,
         error: null
       }
     case `${UPDATE_POST}_SUCCESS` :

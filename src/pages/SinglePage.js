@@ -14,7 +14,7 @@ const SinglePage = () => {
   const history = useHistory();
   const {id} = useParams();
   const {isLoggedIn} = useAuth();
-  const {postItem} = usePost(id);
+  const {post, postItem} = usePost(id);
 
   const handleClick = e => {
     e.preventDefault();
@@ -22,17 +22,19 @@ const SinglePage = () => {
   }
 
   let postDate1, postDate2
-  if(postItem.createdAt) {
-    postDate1 = moment(postItem.createdAt).format('YYYY-MM-DD')
-    postDate2 = moment(postItem.createdAt).format('YYYY.MM.DD')
-  } else {
-    postDate1 = ''
-    postDate2 = ''
+  if(postItem) {
+    if(postItem.createdAt) {
+      postDate1 = moment(postItem.createdAt).format('YYYY-MM-DD')
+      postDate2 = moment(postItem.createdAt).format('YYYY.MM.DD')
+    } else {
+      postDate1 = ''
+      postDate2 = ''
+    }
   }
 
   return (
     <>
-      <Breadcrumbs title={postItem.title} />
+      <Breadcrumbs title={postItem ? postItem.title : post.title} />
       <div className="l-container single-body">
         {isLoggedIn &&
         <div className="content-header">
@@ -49,17 +51,20 @@ const SinglePage = () => {
           </time>
         </span>
 
-        <h1>{postItem.title}</h1>
+        <h1>{postItem ? postItem.title : post.title}</h1>
         <div className="single-feature-image"
-          style={{ backgroundImage: `url(${postItem.image})` }}></div>
-        {postItem.content ? <p>{postItem.content}</p> : ''}
+          style={{ backgroundImage: `url(${postItem ? postItem.image : post.image})` }}></div>
+        {postItem ? <p>{postItem.content}</p> : post.content}
 
       </div>
-      {postItem.comments &&
+      {postItem && (postItem.comments ?
       <Comment
-        postId={postItem.id}
+        postId={id}
         comments={postItem.comments}
-      />}
+      /> : <Comment
+        postId={id}
+        comments={post.comments}
+      />)}
     </>
   );
 }

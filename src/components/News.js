@@ -11,15 +11,12 @@ import './News.scss';
 const News = () => {
   const {posts} = usePost();
   const {isLoggedIn} = useAuth();
-  const [articleItems, setArticleItems] = useState(3);
+  const [articleItems, setArticleItems] = useState(6);
 
   const handleClick = (e) => {
     e.preventDefault();
-    setArticleItems(prevItems => prevItems + 3);
-    if(articleItems === 6) setArticleItems(articleItems + 6);
+    setArticleItems(prevItems => prevItems + 6);
   }
-
-  const totalArticles = (articleItems < 3 || articleItems === 12 || articleItems === posts.length);
 
   const postItems = posts.slice(0, articleItems).map((article, key) => (
     <li key={key} className="news-item">
@@ -50,7 +47,7 @@ const News = () => {
         <ul className="news-list">
           {postItems}
         </ul>
-        {!totalArticles &&
+        {!(postItems.length === posts.length) &&
         <div className="news-button">
           <Button label="Load More" onClick={(e) => handleClick(e)} />
         </div>}

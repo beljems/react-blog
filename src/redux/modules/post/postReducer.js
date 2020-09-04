@@ -75,7 +75,7 @@ const postReducer = (state = INITIAL_STATE, action = {}) => {
         error: null
       }
     case `${ADD_COMMENT}_SUCCESS` :
-      let postsData2;
+      let postsData2 = [];
       if(Object.keys(action.payload).length > 0) {
         if(action.payload.comment.postId === state.post.id) {
           postsData2 = [...state.posts.map(obj => {

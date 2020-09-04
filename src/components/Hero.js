@@ -37,7 +37,7 @@ const Hero = () => {
                   <div className="l-container">
                     <div className="hero-slider-inner">
                       <p className="hero-slider-desc">
-                        <span>{value.title.slice(0, 28)}</span>
+                        <span>{value.title.slice(0, 30)}</span>
                       </p>
                       <time className="hero-slider-time" dateTime={value.createdAt ? moment(value.createdAt).format('YYYY-MM-DD') : ''}>
                         {value.createdAt ? moment(value.createdAt).format('YYYY.MM.DD') : ''}

@@ -57,11 +57,13 @@ const SinglePage = () => {
         {postItem ? <p>{postItem.content}</p> : post.content}
 
       </div>
-      {postItem && (postItem.comments ?
+      {postItem && (postItem.comments &&
       <Comment
         postId={id}
         comments={postItem.comments}
-      /> : <Comment
+      />)}
+      {!postItem && (post.comments &&
+      <Comment
         postId={id}
         comments={post.comments}
       />)}

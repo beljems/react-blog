@@ -27,7 +27,7 @@ const SingleEditPage = () => {
   })
   const [confirm, setConfirm] = useState(false);
 
-  useEffect(initialValues, [postItem])
+  useEffect(initialValues, [post, postItem])
 
   function initialValues() {
     setValues({

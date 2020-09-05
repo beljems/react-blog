@@ -14,6 +14,7 @@ export default () => {
 
   return {
     isLoggedIn,
-    setIsLoggedIn
+    setIsLoggedIn,
+    authToken
   }
 }

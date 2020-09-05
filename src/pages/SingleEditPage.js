@@ -16,7 +16,7 @@ import { DELAY } from '../utils/constants'
 const SingleEditPage = () => {
   const {id} = useParams();
   const history = useHistory();
-  const {postItem, updatePost, getUpdatedPost} = usePost(id);
+  const {post, postItem, updatePost, getUpdatedPost} = usePost(id);
   const [message, setMessage] = useState('');
   const [image, setImage] = useState('');
   const [values, setValues] = useState({
@@ -32,9 +32,9 @@ const SingleEditPage = () => {
   function initialValues() {
     setValues({
       id: parseInt(id),
-      title: postItem.title,
-      content: postItem.content,
-      image: postItem.image,
+      title: postItem ? postItem.title : post.title,
+      content: postItem ? postItem.content : post.content,
+      image: postItem ? postItem.image : post.image,
     })
   }
 
@@ -75,7 +75,7 @@ const SingleEditPage = () => {
 
   return (
     <>
-      <Breadcrumbs title={postItem.title} />
+      <Breadcrumbs title={postItem ? postItem.title : post.title} />
       <Confirmation
         modifier={confirm ? ' is-open' : ''}
         link={`/news/${id}`}
@@ -112,11 +112,16 @@ const SingleEditPage = () => {
             name="content" id="content" value={values.content} onChange={(e) => handleChange('content', e.target.value)}></textarea>
        </form>
      </div>
-     {postItem.comments &&
-       <Comment
-         postId={postItem.id}
-         comments={postItem.comments}
-       />}
+     {postItem && (postItem.comments &&
+     <Comment
+       postId={id}
+       comments={postItem.comments}
+     />)}
+     {!postItem && (post.comments &&
+     <Comment
+       postId={id}
+       comments={post.comments}
+     />)}
     </>
   );
 }

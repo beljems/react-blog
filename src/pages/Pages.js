@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, Redirect, useLocation } from 'react-router-dom';
+import { Switch, Route, useLocation } from 'react-router-dom';
 
 import useAuth from '../hooks/useAuth';
 
@@ -13,18 +13,17 @@ const Pages = () => {
   const location = useLocation();
   const path = location.pathname;
 
-  const singleNew = isLoggedIn ? <SingleNewPage /> : <Redirect to='/' />
-  const singleEdit = isLoggedIn ? <SingleEditPage /> : <Redirect to='/' />
-
   return (
     <main className={`app-main${path === '/' ? '' : ' app-main-single'}`}>
       <Switch>
+        {isLoggedIn &&
         <Route path={`/news/new`}>
-          {singleNew}
-        </Route>
+          <SingleNewPage />
+        </Route>}
+        {isLoggedIn &&
         <Route path={`/news/edit/:id`}>
-          {singleEdit}
-        </Route>
+          <SingleEditPage />
+        </Route>}
         <Route path={`/news/:id`}>
           <SinglePage />
         </Route>

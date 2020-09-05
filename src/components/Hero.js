@@ -2,17 +2,16 @@ import React, { useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import moment from 'moment';
 
-import useSorting from './../hooks/useSorting'
 import usePost from './../hooks/usePost'
 
 import './Hero.scss';
 import { IS_ACTIVE, IS_DISABLED } from './../utils/constants';
-import heroImage from './../assets/images/hero-img.jpg';
+//import heroImage from './../assets/images/hero-img.jpg';
+import noImage from './../assets/images/noimage.jpg';
 
 const Hero = () => {
   const {posts} = usePost();
   const [id, setId] = useState(0);
-  const {sortItems} = useSorting(posts);
 
   const handlePrevClick = () => setId(prevId => prevId - 1);
   const handleNextClick = () => setId(prevId => prevId + 1);
@@ -31,9 +30,9 @@ const Hero = () => {
         <Route path="/" exact>
           <div className="hero-slider">
             <ul>
-              {sortItems.slice(0, totalSlides).map((value, item) => (
+              {posts.slice(0, totalSlides).map((value, item) => (
                 <li key={item} className={`hero-slider-item ${item === id ? 'is-active' : ''}`}
-                  style={{backgroundImage: `url(${value.image ? value.image : heroImage})`}}>
+                  style={{backgroundImage: `url(${value.image ? value.image : noImage})`}}>
                   <div className="l-container">
                     <div className="hero-slider-inner">
                       <p className="hero-slider-desc">

@@ -10,9 +10,10 @@ const Article = ({ id, time, image, title }) => {
     <article className="article-card">
       <Link className="article-card-link" to={`/news/${id}`}>
         <div className="article-card-image" style={{ backgroundImage: `url(${image ? image : noImage})`}}></div>
-        <time className="article-card-time" dateTime={time ? moment(time).format('YYYY-MM-DD') : ''}>
-          {time ? moment(time).format('YYYY.MM.DD') : ''}
-        </time>
+        {time &&
+        <time className="article-card-time" dateTime={moment(time).format('YYYY-MM-DD')}>
+          {moment(time).format('YYYY.MM.DD')}
+        </time>}
         <p className="article-card-desc">{title}</p>
       </Link>
     </article>

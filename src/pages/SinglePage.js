@@ -21,17 +21,6 @@ const SinglePage = () => {
     history.push(`/news/edit/${id}`)
   }
 
-  let postDate1, postDate2
-  if(postItem) {
-    if(postItem.createdAt) {
-      postDate1 = moment(postItem.createdAt).format('YYYY-MM-DD')
-      postDate2 = moment(postItem.createdAt).format('YYYY.MM.DD')
-    } else {
-      postDate1 = ''
-      postDate2 = ''
-    }
-  }
-
   return (
     <>
       <Breadcrumbs title={postItem ? postItem.title : post.title} />
@@ -45,11 +34,12 @@ const SinglePage = () => {
           </div>
         </div>}
 
+        {postItem && (postItem.createdAt &&
         <span className="single-date">
-          <time dateTime={postDate1}>
-            {postDate2}
+          <time dateTime={moment(postItem.createdAt).format('YYYY-MM-DD')}>
+            {moment(postItem.createdAt).format('YYYY.MM.DD')}
           </time>
-        </span>
+        </span>)}
 
         <h1>{postItem ? postItem.title : post.title}</h1>
         <div className="single-feature-image"

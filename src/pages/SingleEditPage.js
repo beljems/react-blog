@@ -73,15 +73,6 @@ const SingleEditPage = () => {
     }
   }
 
-  let postDate1, postDate2;
-  if(postItem.createdAt) {
-    postDate1 = moment(postItem.createdAt).format('YYYY-MM-DD')
-    postDate2 = moment(postItem.createdAt).format('YYYY.MM.DD')
-  } else {
-    postDate1 = ''
-    postDate2 = ''
-  }
-
   return (
     <>
       <Breadcrumbs title={postItem.title} />
@@ -105,11 +96,12 @@ const SingleEditPage = () => {
             </div>
           </div>
 
+          {postItem && (postItem.createdAt &&
           <span className="single-date">
-            <time dateTime={postDate1}>
-              {postDate2}
+            <time dateTime={moment(postItem.createdAt).format('YYYY-MM-DD')}>
+              {moment(postItem.createdAt).format('YYYY.MM.DD')}
             </time>
-          </span>
+          </span>)}
 
           <textarea className="single-edit-textarea single-edit-heading"
             name="title" id="title" value={values.title} onChange={(e) => handleChange('title', e.target.value)}></textarea>

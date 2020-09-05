@@ -1,4 +1,8 @@
-import { AUTH_LOGIN, AUTH_REGISTER, AUTH_ERROR } from './authTypes'
+import {
+  AUTH_LOGIN,
+  AUTH_REGISTER,
+  AUTH_ERROR
+} from './authTypes'
 
 const INITIAL_STATE = {
   token: null,

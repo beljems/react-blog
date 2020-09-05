@@ -57,8 +57,8 @@ const Comment = ({ postId, comments }) => {
         <h2 className="heading">COMMENT</h2>
 
         <ul className="comment-list">
-          {contents.map(value => (
-          <li key={value.toString()} className="comment-item">
+          {contents.map((value, key) => (
+          <li key={key} className="comment-item">
             <p className="comment-item-text">{value.content}</p>
             <span className="comment-item-date">{getDurationTimeSince(value.createdAt)}</span>
           </li>))}

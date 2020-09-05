@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 
-import './../components/Article.scss';
-import noImage from './../assets/images/noimage.jpg';
+import './Article.scss';
+import noImage from '../../assets/images/noimage.jpg';
 
 const Article = ({ id, time, image, title }) => {
   return (
@@ -14,7 +14,7 @@ const Article = ({ id, time, image, title }) => {
         <time className="article-card-time" dateTime={moment(time).format('YYYY-MM-DD')}>
           {moment(time).format('YYYY.MM.DD')}
         </time>}
-        <p className="article-card-desc">{title}</p>
+        <p className={`article-card-desc${!time && ' article-card-desc-top'}`}>{title}</p>
       </Link>
     </article>
   );

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Switch, Route, Redirect, useLocation } from 'react-router-dom';
 
-import useAuth from './../hooks/useAuth';
+import useAuth from '../hooks/useAuth';
 
-import News from './../components/News';
+import News from '../components/News';
 import SinglePage from './SinglePage';
 import SingleEditPage from './SingleEditPage';
 import SingleNewPage from './SingleNewPage';

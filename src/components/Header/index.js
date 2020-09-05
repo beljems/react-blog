@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useHistory } from 'react-router-dom';
 
-import useAuth from './../hooks/useAuth'
+import useAuth from '../../hooks/useAuth'
 
 import './Header.scss';
-import Form from './Form';
-import { IS_ACTIVE } from './../utils/constants';
-import logoBlog from './../assets/images/logo-blog.png';
+import Form from '../Form';
+import { IS_ACTIVE } from '../../utils/constants';
+import logoBlog from '../../assets/images/logo-blog.png';
 
 const Header = () => {
   const {isLoggedIn, setIsLoggedIn} = useAuth();

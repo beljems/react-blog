@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { authRegister, authLogin } from './../redux/modules/auth/authActions'
+import { authRegister, authLogin } from '../redux/modules/auth/authActions'
 
 export default (data = {}) => {
   const dispatch = useDispatch();

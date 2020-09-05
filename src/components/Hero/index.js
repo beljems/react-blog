@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import moment from 'moment';
 
-import usePost from './../hooks/usePost'
+import usePost from '../../hooks/usePost'
 
 import './Hero.scss';
-import { IS_ACTIVE, IS_DISABLED } from './../utils/constants';
-//import heroImage from './../assets/images/hero-img.jpg';
-import noImage from './../assets/images/noimage.jpg';
+import { IS_ACTIVE, IS_DISABLED } from '../../utils/constants';
+//import heroImage from '../../assets/images/hero-img.jpg';
+import noImage from '../../assets/images/noimage.jpg';
 
 const Hero = () => {
   const {posts} = usePost();

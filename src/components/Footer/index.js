@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import './Footer.scss';
-import { WRAP } from './../utils/constants';
-import logoBlogWhite from './../assets/images/logo-blog-white.png';
+import { WRAP } from '../../utils/constants';
+import logoBlogWhite from '../../assets/images/logo-blog-white.png';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();

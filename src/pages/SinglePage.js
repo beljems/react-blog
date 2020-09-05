@@ -2,12 +2,12 @@ import React from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import moment from 'moment';
 
-import useAuth from './../hooks/useAuth'
-import usePost from './../hooks/usePost'
+import useAuth from '../hooks/useAuth'
+import usePost from '../hooks/usePost'
 
-import Breadcrumbs from './../components/Breadcrumbs';
-import Comment from './../components/Comment';
-import Button from './../components/Button';
+import Breadcrumbs from '../components/Breadcrumbs';
+import Comment from '../components/Comment';
+import Button from '../components/Button';
 import './SinglePage.scss';
 
 const SinglePage = () => {

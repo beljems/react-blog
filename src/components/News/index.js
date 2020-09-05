@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import useAuth from './../hooks/useAuth'
-import usePost from './../hooks/usePost'
+import useAuth from '../../hooks/useAuth'
+import usePost from '../../hooks/usePost'
 
-import Article from './Article';
-import Button from './Button';
+import Article from '../Article';
+import Button from '../Button';
 import './News.scss';
 
 const News = () => {

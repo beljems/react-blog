@@ -1,4 +1,4 @@
-@import './../assets/styles/settings';
+@import '../../assets/styles/settings';
 
 .article-card {
   display: block;
@@ -35,4 +35,8 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  &.article-card-desc-top {
+    margin-top: 26px;
+  }
 }

@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import moment from 'moment';
 
-import usePost from './../hooks/usePost'
+import usePost from '../hooks/usePost'
 
-import Breadcrumbs from './../components/Breadcrumbs';
-import Comment from './../components/Comment';
-import Button from './../components/Button';
-import Confirmation from './../components/Confirmation';
-import Upload from './../components/Upload';
+import Breadcrumbs from '../components/Breadcrumbs';
+import Comment from '../components/Comment';
+import Button from '../components/Button';
+import Confirmation from '../components/Confirmation';
+import Upload from '../components/Upload';
 import './SinglePage.scss';
 import './SingleEditPage.scss';
-import { DELAY } from './../utils/constants'
+import { DELAY } from '../utils/constants'
 
 const SingleEditPage = () => {
   const {id} = useParams();

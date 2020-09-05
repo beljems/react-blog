@@ -4,13 +4,13 @@ import moment from 'moment';
 
 import usePost from './../hooks/usePost'
 
-import Breadcrumbs from './../components/Breadcrumbs';
-import Button from './../components/Button';
-import Confirmation from './../components/Confirmation';
-import Upload from './../components/Upload';
+import Breadcrumbs from '../components/Breadcrumbs';
+import Button from '../components/Button';
+import Confirmation from '../components/Confirmation';
+import Upload from '../components/Upload';
 import './SinglePage.scss';
 import './SingleEditPage.scss';
-import { DELAY } from './../utils/constants'
+import { DELAY } from '../utils/constants'
 
 const SingleNewPage = () => {
   const dateToday = new Date();

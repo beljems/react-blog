@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 
-import usePost from './../hooks/usePost'
-import Button from './Button';
-import Loading from './Loading'
+import usePost from '../../hooks/usePost'
+import Button from '../Button';
+import Loading from '../Loading'
 import './Comment.scss';
 
 const Comment = ({ postId, comments }) => {

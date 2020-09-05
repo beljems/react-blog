@@ -1,8 +1,10 @@
 import React from 'react';
+
 import { useSelector } from 'react-redux';
-import useForm from './../hooks/useForm';
+import useForm from '../../hooks/useForm';
+
 import { Link } from 'react-router-dom';
-import Button from './Button';
+import Button from '../Button';
 
 const FormRegister = ({ onClick }) => {
   const {register} = useSelector(state => state.auth);

@@ -3,13 +3,7 @@ import { Switch, Route, Link } from 'react-router-dom';
 
 import './Breadcrumbs.scss';
 
-const Breadcrumbs = ( props ) => {
-  const element = <li className="breadcrumbs-item breadcrumbs-item-current">
-    {props.title}
-  </li>;
-
-  const breadcrumbsItem = props.title && element;
-
+const Breadcrumbs = ({ title }) => {
   return (
     <div className="breadcrumbs">
       <div className="l-container">
@@ -24,7 +18,10 @@ const Breadcrumbs = ( props ) => {
               </li>
             </Route>
           </Switch>
-          {breadcrumbsItem}
+          {title &&
+          <li className="breadcrumbs-item breadcrumbs-item-current">
+            {title}
+          </li>}
         </ul>
       </div>
     </div>

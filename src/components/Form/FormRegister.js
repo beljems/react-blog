@@ -24,7 +24,7 @@ const FormRegister = ({ onClick }) => {
     <div className="form-inner">
       <p className="form-heading">Register</p>
 
-      {message !== '' ? <p class={`message ${register ? 'success' : 'error'}`}>{message}</p> : ''}
+      {message !== '' ? <p className={`message ${register ? 'success' : 'error'}`}>{message}</p> : ''}
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label className="form-label">Email</label>

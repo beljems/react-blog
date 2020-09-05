@@ -4,14 +4,14 @@ import PropTypes from 'prop-types';
 import './Button.scss'
 
 const Button = ({
-  modifier,
+  modifier = '',
   label,
-  disabled = false,
+  disabled,
   onClick = () => {}
 }) => {
   return (
     <>
-      <button className={`button ${modifier}`} onClick={disabled ? disabled : onClick}>
+      <button className={`button ${modifier}`} onClick={onClick} disabled={disabled}>
         {label}
       </button>
     </>

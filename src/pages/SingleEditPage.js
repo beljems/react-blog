@@ -88,7 +88,7 @@ const SingleEditPage = () => {
           <div className="content-header">
             <div className="content-header-item content-header-item-right">
               <div className="content-header-link">
-                <Button modifier="button-default" label="Save Post" />
+                <Button modifier="button-default" label="Save Post"/>
               </div>
               <div className="content-header-link">
                 <Button modifier="button-default" label="Cancel" onClick={(e) => handleCancel(e)} />

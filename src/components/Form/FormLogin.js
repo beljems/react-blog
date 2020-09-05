@@ -20,7 +20,7 @@ const FormLogin = ({ onClick }) => {
       <div className="form-inner">
         <p className="form-heading">Login</p>
 
-        {message !== '' ? <p class="message error">{message}</p> : ''}
+        {message !== '' ? <p className="message error">{message}</p> : ''}
         <form onSubmit={handleLoginSubmit}>
           <div className="form-group">
             <label className="form-label">Email</label>

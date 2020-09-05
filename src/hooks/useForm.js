@@ -8,7 +8,7 @@ export default (data = {}) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const {token, register, error} = useSelector(state => state.auth);
-  const [processing, setProcessing] = useState(false);
+  const [processing, setProcessing] = useState(true);
   const [message, setMessage] = useState('');
   const [values, setValues] = useState(data);
 
@@ -52,19 +52,21 @@ export default (data = {}) => {
     if(values.email.length !== 0 &&
       values.password.length !== 0 &&
       values.cpassword.length !== 0) {
-      const mailFormat = /^(([^<>()/[\]\\.,;:\s@"]+(\.[^<>()/[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      const mailFormat = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+      
       if(!values.email.match(mailFormat)) {
         setMessage('Not a valid email!')
       }
       else if(values.password !== values.cpassword) {
         setMessage('Confirm password does not match with password!')
       } else {
-        setProcessing(true);
+        setProcessing(false);
         setMessage('');
         dispatch(authRegister(values))
       }
     } else {
-      setMessage('Fields must not be blank!')
+      //setMessage('Fields must not be blank!')
+      setProcessing(true);
     }
   }
 
@@ -77,7 +79,8 @@ export default (data = {}) => {
       setMessage('');
       dispatch(authLogin(values))
     } else {
-      setMessage('Fields must not be blank!')
+      //setMessage('Fields must not be blank!')
+      setProcessing(true);
     }
   }
 

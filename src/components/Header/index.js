@@ -28,8 +28,8 @@ const Header = () => {
   }, [isLoggedIn, isOpen])
 
   const handleClick = () => setIsOpen(!isOpen)
-  const handleRemoveClick = () => setIsOpen(false);
-  const handleLogoutClick = () => {
+  const handleClose = () => setIsOpen(false);
+  const handleLogout = () => {
     const removeToken = localStorage.removeItem('token');
 
     setIsOpen(false);
@@ -38,7 +38,7 @@ const Header = () => {
     history.push('/');
   }
 
-  const logoLink = <Link to="/" onClick={() => handleRemoveClick()}>
+  const logoLink = <Link to="/" onClick={() => handleClose()}>
     <img src={logoBlog} alt="Blog" />
   </Link>;
 
@@ -60,7 +60,7 @@ const Header = () => {
           {element}
           <div className="header-right">
             {isLoggedIn &&
-            <button className="header-right-button" onClick={() => handleLogoutClick()}>
+            <button className="header-right-button" onClick={() => handleLogout()}>
               Logout
             </button>}
             {!isLoggedIn &&

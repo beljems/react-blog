@@ -44,13 +44,17 @@ const Header = () => {
 
   let element;
   if(path === '/') {
-    element = <h1 className="header-logo">
-    {logoLink}
-    </h1>;
+    element = (
+      <h1 className="header-logo">
+        {logoLink}
+      </h1>
+    );
   } else {
-    element = <div className="header-logo">
-    {logoLink}
-    </div>;
+    element = (
+      <div className="header-logo">
+        {logoLink}
+      </div>
+    );
   }
 
   return (
